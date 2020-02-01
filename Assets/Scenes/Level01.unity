@@ -779,6 +779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1046986509}
   size: 0
+  gameOver: 0
 --- !u!1 &1496116909
 GameObject:
   m_ObjectHideFlags: 0
