@@ -1,10 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlatformSpawner : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject diamonds;
+    
     Vector3 lastPosition;
     public float size;
     public bool gameOver;
@@ -34,7 +39,7 @@ public class PlatformSpawner : MonoBehaviour
             CancelInvoke("SpawnPlatforms");
         }
         
-        int random = Random.Range(0, 6);
+        int random = Random.Range(0, 6);        // Random No between 0 and 6.
         if (random < 3)
         {
             SpawnX();
@@ -51,6 +56,12 @@ public class PlatformSpawner : MonoBehaviour
         position.x += size;        // Position with respect to x is equal to position + size. 
         lastPosition = position;        // Set last position equal to new position. 
         Instantiate(platform, position, Quaternion.identity);        // Instantiate new platform at new position. 
+        
+        int random = Random.Range(0, 4);
+        if (random < 1)
+        {
+            Instantiate(diamonds, new Vector3(position.x, position.y + 1, position.z), diamonds.transform.rotation);
+        }
     }
 
     void SpawnZ()
@@ -59,5 +70,11 @@ public class PlatformSpawner : MonoBehaviour
         position.z += size;
         lastPosition = position;
         Instantiate(platform, position, Quaternion.identity);
+
+        int random = Random.Range(0, 4);
+        if (random < 1)
+        {
+            Instantiate(diamonds, new Vector3(position.x, position.y + 1, position.z), diamonds.transform.rotation);
+        }
     }
 }

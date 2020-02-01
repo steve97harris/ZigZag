@@ -175,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 5.11, z: 0}
+  m_LocalPosition: {x: 1.04, y: 7.58, z: -1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -210,10 +210,9 @@ Transform:
   m_Children:
   - {fileID: 815063900}
   - {fileID: 1059569330}
-  - {fileID: 1067731739}
   - {fileID: 663439664}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -377,7 +376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 396506238}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815063896
 GameObject:
@@ -500,6 +499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180035424d9d0a341b781d6b40728d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleSystem: {fileID: 2428392329331151022, guid: b04dd4b7c536aa247a16afe73cdf81ba,
+    type: 3}
   speed: 8
   started: 0
   gameOver: 0
@@ -762,8 +763,8 @@ Transform:
   m_LocalPosition: {x: 6.5, y: 0, z: 4}
   m_LocalScale: {x: 3, y: 1, z: 2}
   m_Children: []
-  m_Father: {fileID: 396506238}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1067731740
 MonoBehaviour:
@@ -778,6 +779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1046986509}
+  diamonds: {fileID: 8496870013704330691, guid: 44809a25ed0453d4bad15c2bb0695c99,
+    type: 3}
   size: 0
   gameOver: 0
 --- !u!1 &1496116909
@@ -1096,6 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40518af798eca243bd8b4463a6c9b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondsCollected: 0
 --- !u!1 &2016501290
 GameObject:
   m_ObjectHideFlags: 0

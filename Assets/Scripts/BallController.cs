@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public GameObject particleSystem;
+
     [SerializeField]
     private float speed;
 
@@ -12,9 +16,12 @@ public class BallController : MonoBehaviour
     
     Rigidbody rb;
 
+    GameManager gameManager;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
@@ -59,6 +66,19 @@ public class BallController : MonoBehaviour
         else if (rb.velocity.x > 0)
         {
             rb.velocity = new Vector3(0,0, speed);        // If moving in x direction, switch to z direction. 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Diamond")
+        {
+            GameObject particle = Instantiate(particleSystem, other.gameObject.transform.position, Quaternion.identity);
+            
+            Destroy(other.gameObject);
+            Destroy(particle, 1f);
+            
+            gameManager.diamondsCollected++;
         }
     }
 }
