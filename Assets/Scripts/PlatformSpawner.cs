@@ -7,22 +7,42 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platform;
     Vector3 lastPosition;
     public float size;
+    public bool gameOver;
     
     void Start()
     {
         lastPosition = platform.transform.position;        // Get last position of platform.
         size = platform.transform.localScale.x;        // Get size of of platform with respect to x vector. 
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 20; i++)
         {
-            // SpawnX();
-            SpawnZ();
+            SpawnPlatforms();
         }
+        
+        InvokeRepeating("SpawnPlatforms",2f,0.2f);
     }
 
     void Update()
     {
         
+    }
+
+    void SpawnPlatforms()
+    {
+        if (gameOver)
+        {
+            CancelInvoke("SpawnPlatforms");
+        }
+        
+        int random = Random.Range(0, 6);
+        if (random < 3)
+        {
+            SpawnX();
+        }
+        else if (random >= 3)
+        {
+            SpawnZ();
+        }
     }
 
     void SpawnX()
