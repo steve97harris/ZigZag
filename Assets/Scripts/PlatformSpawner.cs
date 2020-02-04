@@ -23,22 +23,23 @@ public class PlatformSpawner : MonoBehaviour
         {
             SpawnPlatforms();
         }
-        
-        InvokeRepeating("SpawnPlatforms",2f,0.2f);
+    }
+
+    public void StartSpawningPlatforms()
+    {
+        InvokeRepeating("SpawnPlatforms",0.1f,0.2f);
     }
 
     void Update()
     {
-        
-    }
-
-    void SpawnPlatforms()
-    {
-        if (gameOver)
+        if (GameManager.instance.gameOver)
         {
             CancelInvoke("SpawnPlatforms");
         }
-        
+    }
+    
+    void SpawnPlatforms()
+    {
         int random = Random.Range(0, 6);        // Random No between 0 and 6.
         if (random < 3)
         {

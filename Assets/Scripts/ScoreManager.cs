@@ -25,11 +25,6 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("score",score);
     }
 
-    void Update()
-    {
-        
-    }
-
     void incrementScore()
     {
         score += 1;
@@ -42,7 +37,8 @@ public class ScoreManager : MonoBehaviour
 
     public void StopScore()
     {
-        CancelInvoke("startScore");
+        CancelInvoke("incrementScore");
+        
         PlayerPrefs.SetInt("score", score);
 
         if (PlayerPrefs.HasKey("highScore"))
