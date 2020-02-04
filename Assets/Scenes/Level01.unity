@@ -822,10 +822,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815063896}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 2428392329331151022, guid: b04dd4b7c536aa247a16afe73cdf81ba,
     type: 3}
-  speed: 6
+  speed: 8
   started: 0
   gameOver: 0
 --- !u!1 &886291318
