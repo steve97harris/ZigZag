@@ -15,13 +15,10 @@ public class BallController : MonoBehaviour
     public bool gameOver;
     
     Rigidbody rb;
-
-    GameManager gameManager;
     
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
@@ -37,6 +34,8 @@ public class BallController : MonoBehaviour
             {
                 rb.velocity = new Vector3(speed,0,0);
                 started = true;
+
+                GameManager.instance.StartGame();
             }
         }
         
@@ -48,6 +47,8 @@ public class BallController : MonoBehaviour
             rb.velocity = new Vector3(0,-25f,0);
 
             Camera.main.GetComponent<CameraController>().gameOver = true;
+
+            GameManager.instance.GameOver();
         }
         
         if (Input.GetMouseButtonDown(0) && !gameOver) 
@@ -77,8 +78,6 @@ public class BallController : MonoBehaviour
             
             Destroy(other.gameObject);
             Destroy(particle, 1f);
-            
-            gameManager.diamondsCollected++;
         }
     }
 }
